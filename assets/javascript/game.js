@@ -7,6 +7,8 @@ $(document).ready(function () {
     var totalWins = $('.wins');
     var totalLosses = $('.losses');
     var score = 0;
+    var sumNum = $('.sum-number');
+    var sumNumValue = 0;
 
     // Win Counter
 
@@ -24,6 +26,14 @@ $(document).ready(function () {
 
     // Gem array
     var gemArray = [];
+
+    // Create the sum number generator
+    function sumGenerator() {
+        var max = 120;
+        var min = 19;
+        sumNumValue = (Math.floor(Math.random() * (max - min + 1)) + min);
+        sumNum.html(sumNumValue);
+    }
 
     // Random Number Generator
     function randomNumberGenerator() {
@@ -44,27 +54,43 @@ $(document).ready(function () {
     function scoreTracker(gemValue) {
         // Updating score with any value that is passed when the function is called then gemValue will equal that
 
-        if (score < 39) {
+        if (score < sumNumValue) {
             score += gemValue;
-            console.log(score);
+            // console.log(score);
             totalScore.html(score);
-            if (score === 39) {
-                alert('You win!');
-            }
-            if (score > 39) {
-                alert('You lose!');
-            }
-        } else if (score === 39) {
+
+            // if (score === sumNumValue) {
+            //     alert('You win!');
+            //     wins++;
+            //     console.log(wins);
+            //     totalWins.html(wins);
+            //     gameOver();
+            // }
+            // if (score > sumNumValue) {
+            //     alert('You lose!');
+            //     losses++;
+            //     totalLosses.html(losses);
+            //     gameOver();
+            // }
+        } else if (score === sumNumValue) {
+            wins++;
+            totalWins.html(wins);
             alert('You win!');
+            gameOver();
         }
         else {
+            losses++;
+            console.log(losses);
+            totalLosses.html(losses);
             alert('You lose!');
+            gameOver();
         }
     }
 
 
 
     // Call function
+    sumGenerator();
     randomNumberGenerator();
 
     console.log(gemArray);
@@ -77,7 +103,20 @@ $(document).ready(function () {
 
 
     // Game Over Function
+    function gameOver() {
+        totalScore.html(0);
+        gemArray = [];
+        score = 0;
+        randomArrayNumber = 0;
+        yellowGemValue = 0;
+        redGemValue = 0;
+        blueGemValue = 0;
+        greenGemValue = 0;
+        sumNumValue = 0;
+        sumGenerator();
+        randomNumberGenerator();
 
+    }
 
 
     // Click Handlers
