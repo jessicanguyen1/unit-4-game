@@ -1,4 +1,21 @@
+// Global Variables
 
+// Win Counter
+var wins = 0;
+// Lose Counter
+var losses = 0;
+// Gem array to push values into element
+var gemArray = [];
+var score = 0;
+
+// Number for the js to plug into the .sum-number element
+var sumNumValue = 0;
+
+// Setting gems value after number generator
+var yellowGemValue;
+var blueGemValue;
+var greenGemValue;
+var redGemValue;
 
 $(document).ready(function () {
 
@@ -6,17 +23,9 @@ $(document).ready(function () {
     var totalScore = $('.score');
     var totalWins = $('.wins');
     var totalLosses = $('.losses');
-    var score = 0;
+
+    // Number for the game start
     var sumNum = $('.sum-number');
-    var sumNumValue = 0;
-
-    // Win Counter
-
-    var wins = 0;
-
-    // Lose Counter
-
-    var losses = 0;
 
     // Gem Elements
     var yellowGem = $(".gem-1");
@@ -24,8 +33,6 @@ $(document).ready(function () {
     var greenGem = $(".gem-3");
     var redGem = $(".gem-4");
 
-    // Gem array
-    var gemArray = [];
 
     // Create the sum number generator
     function sumGenerator() {
@@ -47,40 +54,44 @@ $(document).ready(function () {
 
             randomArrayNumber = Math.floor(Math.random() * (max - min + 1)) + min;
             gemArray[i] = randomArrayNumber;
+
+            // Setting gems value after number generator
+            yellowGemValue = gemArray[0];
+            blueGemValue = gemArray[1];
+            greenGemValue = gemArray[2];
+            redGemValue = gemArray[3];
         }
+
     }
 
     // Score Tracker Function
     function scoreTracker(gemValue) {
         // Updating score with any value that is passed when the function is called then gemValue will equal that
 
-        if (score < sumNumValue) {
+        if (score <= sumNumValue) {
+
             score += gemValue;
-            // console.log(score);
             totalScore.html(score);
 
-            // if (score === sumNumValue) {
-            //     alert('You win!');
-            //     wins++;
-            //     console.log(wins);
-            //     totalWins.html(wins);
-            //     gameOver();
-            // }
-            // if (score > sumNumValue) {
-            //     alert('You lose!');
-            //     losses++;
-            //     totalLosses.html(losses);
-            //     gameOver();
-            // }
+            // After score is updated above, check one more time so I don't have to click a gem again
+            if (score === sumNumValue) {
+                wins++;
+                totalScore.html(score);
+                totalWins.html(wins);
+                alert('You win!');
+                gameOver();
+            }
+
         } else if (score === sumNumValue) {
             wins++;
+            totalScore.html(score);
             totalWins.html(wins);
             alert('You win!');
             gameOver();
         }
-        else {
+        else if (score > sumNumValue) {
             losses++;
-            console.log(losses);
+            totalScore.html(score);
             totalLosses.html(losses);
             alert('You lose!');
             gameOver();
@@ -93,17 +104,10 @@ $(document).ready(function () {
     sumGenerator();
     randomNumberGenerator();
 
-    console.log(gemArray);
-
-    // Setting gems value after number generator
-    var yellowGemValue = gemArray[0];
-    var blueGemValue = gemArray[1];
-    var greenGemValue = gemArray[2];
-    var redGemValue = gemArray[3];
-
-
     // Game Over Function
     function gameOver() {
+
+        // Set variables back -- need to add var because the scope is not available to the the rest of the program
         totalScore.html(0);
         gemArray = [];
         score = 0;
@@ -113,8 +117,8 @@ $(document).ready(function () {
         blueGemValue = 0;
         greenGemValue = 0;
         sumNumValue = 0;
-        sumGenerator();
         randomNumberGenerator();
+        sumGenerator();
 
     }
 
