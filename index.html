@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Black+And+White+Picture|Nunito|Spicy+Rice" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
 
 </head>
 
@@ -21,43 +23,47 @@
                 <!-- Title header -->
                 <h1>Crystals Collector</h1>
             </div>
-            <div class="row">
-                <div class="col-lg-12"></div>
-                <p>
-                    Game Instructions
-                    <br>
-                    You will be given a random number at the start of the game. There are four crystals below. By
-                    clicking on a crystal you will add a specific amount of points to your total score. You win the
-                    game by matching your total score to random number, you lose the game if your total score goes
-                    above the random number. The value of each crystal is hidden from you until you click on it. Each
-                    time the game starts, the game will change the values of each crystal.
-
-                </p>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 random-number">
-                    39
-                </div>
-                <div class="col-md-2 gem">
-                    <img src="./assets/images/yellow-gem.png" class="crystal" class="img-thumbnail" />
-                </div>
-                <div class="col-md-2 gem">
-                    <img src="./assets/images/blue-gem.png" class="img-thumbnail" />
-                </div>
-                <div class="col-md-2 gem">
-                    <img src="./assets/images/green-gem.png" class="crystal" class="img-thumbnail" />
-                </div>
-                <div class="col-md-2 gem">
-                    <img src="./assets/images/red-gem.png" class="img-thumbnail" />
-                </div>
-            </div>
         </div>
         <div class="row">
-            <div class="col-md-6 total-score">
-                Your Total Score:
+            <div class="col-lg-12"></div>
+            <p>
+                Game Instructions
+                <br>
+                You will be given a random number at the start of the game. There are four crystals below. By
+                clicking on a crystal you will add a specific amount of points to your total score. You win the
+                game by matching your total score to random number, you lose the game if your total score goes
+                above the random number. The value of each crystal is hidden from you until you click on it. Each
+                time the game starts, the game will change the values of each crystal.
+
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 random-number">
+                39
             </div>
-            <div class="col-md-6 win-lose">
-                Wins/Losses:
+            <div class="col-md-2 gems">
+                <img src="./assets/images/yellow-gem.png" class="gem-1" class="img-thumbnail" />
+            </div>
+            <div class="col-md-2 gems">
+                <img src="./assets/images/blue-gem.png" class="gem-2" class="img-thumbnail" />
+            </div>
+            <div class="col-md-2 gems">
+                <img src="./assets/images/green-gem.png" class="gem-3" class="img-thumbnail" />
+            </div>
+            <div class="col-md-2 gems">
+                <img src="./assets/images/red-gem.png" class="gem-4" class="img-thumbnail" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 total-score">
+                Your Total Score: <span class="score">0</span>
+            </div>
+            <div class="col-md-3 win-lose">
+                Wins: <span class="wins">0</span>
+            </div>
+            <div class="col-md-3 win-lose">
+                Losses: <span class="losses">0</span>
             </div>
         </div>
 

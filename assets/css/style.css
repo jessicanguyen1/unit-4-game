@@ -1,11 +1,14 @@
 body {
     text-align: center;
+    background-image: url('/unit-4-game/assets/images/gem-background.jpg');
 }
 
 
 h1 {
     font-size: 135px;
     font-family: 'Spicy Rice', cursive;
+    /* color: #0000CD; */
+    /* background-image: url('/unit-4-game/assets/images/light-purple.jpg') */
     
 }
 
@@ -14,6 +17,10 @@ p {
     font-weight: bold;
     font-size: 18px;
     border: solid;
+    background: #FDF5E6;
+    color: #black;
+    padding: 30px;
+    
 
 }
 
@@ -22,26 +29,52 @@ p {
     font-size: 100px;
     font-family: 'Spicy Rice', cursive;
     border: solid;
+    background: #FDF5E6;
+    margin-top: -16px;
 }
 
-.gem {
+.gems {
     border: solid;
+    background: #FDF5E6;
+    margin-top: -16px;
+    
 }
 
-.crystal {
-    width: 100%;
-    height: 180px;
-    padding-top: 31px;
+.gem-1,
+.gem-3 {
+    height: 190px;
+    padding-top: 30px;
+}
+
+.gem-2,
+.gem-4 {
+    padding-top: 30px;
 }
 
 
 .total-score,
 .win-lose {
+    text-align: left;
     font-size: 50px;
     font-family: 'Spicy Rice', cursive;
     padding-top: 40px;
+    background: #FDF5E6;
+    /* margin-top: 20px; */
+    border: solid;
+    padding: 30px;
+
 }
 
 .img-thumbnail {
     padding-top: 30px;
+}
+
+.gem-1,
+.gem-2,
+.gem-3,
+.gem-4 {
+    cursor: pointer;
+    width: 100%;
+    
+    
 }
